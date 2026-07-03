@@ -1,0 +1,224 @@
+const projects = [
+  {
+    title: 'DOGTOR',
+    label: 'Team · 2025.08 - 2025.12',
+    summary: '온디바이스 AI 기반 애완견 케어 서비스',
+    context: 'OceanLight와 협업한 캡스톤 프로젝트로, 반려견 케어와 동물병원 연계를 돕는 AI 서비스를 구현했습니다. 2026 AI Expo Korea 국제인공지능대전에 출품되었습니다.',
+    role: 'AI · AIBE · Infra',
+    impact: '7B 모델 15GB를 4.1GB GGUF로 경량화하고 FastAPI inference 서버에서 preload 구조를 적용했습니다.',
+    points: [
+      'Qwen2.5-7B-Instruct 모델을 llama.cpp 기반 4bit GGUF로 양자화',
+      '수의사 대화 QA 데이터 전처리, paraphrasing, 역번역 증강',
+      'API 요청마다 모델을 재로드하지 않도록 lifespan 기반 LLM preload 구성'
+    ],
+    stack: ['FastAPI', 'llama.cpp', 'Qwen2.5', 'Docker', 'EC2']
+  },
+  {
+    title: 'Fresh Money',
+    label: 'Team · 2025.03 - 2025.07',
+    summary: '청년정책 및 재정관리 추천 서비스',
+    context: '사회초년생의 재정관리를 돕기 위해 투자 방식, 금융상품, 청년지원정책 추천과 자산 관련 챗봇을 제공한 프로젝트입니다.',
+    role: 'AI · AIBE · Infra',
+    impact: '은행상품 데이터와 청년정책 문서를 RAG로 연결해 추천 결과의 근거성과 확장성을 높였습니다.',
+    points: [
+      '제1금융권 금융상품 크롤링 후 임베딩 및 FAISS 벡터 검색 구축',
+      'LangChain LCEL과 RetrievalQA 체인 기반 RAG 파이프라인 작성',
+      'Few-shot 프롬프팅으로 JSON 응답 안정화 및 422 오류 해결'
+    ],
+    stack: ['FastAPI', 'MongoDB', 'LangChain', 'FAISS', 'OpenAI API']
+  },
+  {
+    title: 'LightBox',
+    label: 'Team · 2025.09 - 2025.11',
+    summary: '실시간 졸음운전 감지 서비스',
+    context: 'YOLO와 MediaPipe FaceMesh를 활용해 눈 감김을 감지하고, 주행 종료 후 졸음 발생 구간을 리와인드 분석으로 제공했습니다.',
+    role: 'AI · AIBE · Infra',
+    impact: 'GPU 제약 상황에서도 CPU 추론 파이프라인을 조정해 실시간 처리 안정성을 확보했습니다.',
+    points: [
+      '눈 주변 6개 랜드마크와 EAR 알고리즘으로 사용자별 눈 폭 차이 대응',
+      'YOLO 기반 얼굴 및 눈 영역 crop으로 오탐 감소',
+      'CPU 환경에서 imgsz 조정으로 실시간성과 감지 정확도 균형 확보'
+    ],
+    stack: ['YOLOv11', 'MediaPipe', 'FastAPI', 'MongoDB', 'EC2']
+  },
+  {
+    title: 'Swagger Inspector',
+    label: 'Personal · 2026.01 - 2026.02',
+    summary: 'OpenAPI RAG 분석 챗봇 서비스',
+    context: '기능이 많은 백엔드 API 문서를 챗봇 형태로 탐색할 수 있도록 만든 개인 프로젝트입니다.',
+    role: 'Agent · Backend · AI',
+    impact: '문서 신뢰도와 threshold를 응답에 반영해 사실과 다른 API 안내가 섞이는 문제를 줄였습니다.',
+    points: [
+      'MongoDB Vector Search와 text-embedding-3-small 기반 문서 임베딩',
+      'OpenAPI 스펙 전체 주입 대신 검색 기반 응답으로 토큰 비용 절감',
+      '참고 문서 신뢰도 표시와 threshold 조절로 응답 근거성 개선'
+    ],
+    stack: ['FastAPI', 'MongoDB', 'OpenAI', 'Codex']
+  }
+];
+
+const awards = [
+  ['2026', 'AI Expo Korea 작품 출품', 'Dogtor 프로젝트를 2026 AI Expo Korea 국제인공지능대전에 3일간 출품'],
+  ['2025', '교내 캡스톤 프로젝트 은상 · 동상', 'Fresh Money 은상, Dogtor 동상 수상'],
+  ['2025', '전국 고등학교 동아리 SW 경진대회 장려', 'YOLO와 MediaPipe 기반 LightBox 프로젝트 수행'],
+  ['2025', '제7회 데이터 크리에이터 캠프 장려', '500여 개 팀 중 6위 입상'],
+  ['2024-2026', '활동 및 자격', 'Apple Foundation Program @ POSTECH 3기, 퀀텀아이 인턴십, 실리콘밸리 견학, 정보처리기능사']
+];
+
+const stacks = [
+  ['AI / ML', 'Python, PyTorch, llama.cpp, FAISS, LangChain, OpenAI API, YOLOv11, MediaPipe'],
+  ['Backend / Infra', 'FastAPI, MongoDB, Docker, AWS EC2, Nginx, inference server, API lifecycle'],
+  ['Tools', 'Git, Notion, Codex, 데이터 전처리, 서비스 문서화, 트러블슈팅 기록']
+];
+
+export default function Home() {
+  return (
+    <main>
+      <header className="siteHeader">
+        <a className="brand" href="#home" aria-label="최인규 포트폴리오 홈">
+          <span className="brandMark">IK</span>
+          <span>최인규</span>
+        </a>
+        <nav className="nav" aria-label="주요 메뉴">
+          <a href="#home">랜딩</a>
+          <a href="#projects">프로젝트</a>
+          <a href="#experience">경험&수상</a>
+          <a href="#contact">연락처</a>
+        </nav>
+      </header>
+
+      <section className="hero" id="home">
+        <div className="heroBackdrop" />
+        <div className="heroGrid">
+          <div className="heroCopy">
+            <p className="eyebrow">AI Backend · Inference Server · MLOps</p>
+            <p className="heroLead">데이터 수집부터 모델 개발 · 서빙까지</p>
+            <h1>
+              <span>모든걸 경험한</span>
+              <span>AI백엔드 개발자</span>
+            </h1>
+            <p>
+              RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 바탕으로 모델이 제한된 실행 환경에서도 안정적으로 동작하도록 설계하고 구현합니다.
+            </p>
+            <div className="heroActions">
+              <a className="button primary" href="#projects">프로젝트 보기</a>
+              <a className="button ghost" href="#contact">연락하기</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section intro">
+        <div className="sectionHead split">
+          <div>
+            <p className="kicker">About</p>
+            <h2>모델 구현보다 더 오래 남는 건, 실제 환경에서 버티는 구조라고 생각합니다.</h2>
+          </div>
+          <p>
+            LLM과 비전 기술을 활용한 프로젝트를 진행하며 모델 성능뿐 아니라 추론 속도, 메모리 사용량, API 형식, 배포 환경까지 함께 고려해왔습니다. 협업에서는 인터페이스와 데이터 구조를 먼저 정리해 작업 기준을 맞추는 편입니다.
+          </p>
+        </div>
+      </section>
+
+      <section className="section muted">
+        <div className="sectionHead">
+          <p className="kicker">Stack</p>
+          <h2>주요 기술 스택</h2>
+        </div>
+        <div className="stackGrid">
+          {stacks.map(([title, description]) => (
+            <article className="stackItem" key={title}>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section projects" id="projects">
+        <div className="sectionHead split">
+          <div>
+            <p className="kicker">Projects</p>
+            <h2>프로젝트</h2>
+          </div>
+          <p>
+            프로젝트마다 AI 모델, 백엔드 API, 인프라, 트러블슈팅을 함께 다뤘습니다. 아래 내용은 역할과 기술적 의사결정이 보이도록 재정리했습니다.
+          </p>
+        </div>
+
+        <div className="projectList">
+          {projects.map((project, index) => (
+            <article className="projectItem" key={project.title}>
+              <div className="projectIndex">{String(index + 1).padStart(2, '0')}</div>
+              <div className="projectMain">
+                <div className="projectTopline">
+                  <span>{project.label}</span>
+                  <span>{project.role}</span>
+                </div>
+                <h3>{project.title}</h3>
+                <p className="projectSummary">{project.summary}</p>
+                <p className="projectContext">{project.context}</p>
+                <div className="impactBox">
+                  <span>Impact</span>
+                  <strong>{project.impact}</strong>
+                </div>
+              </div>
+              <div className="projectDetail">
+                <ul>
+                  {project.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+                <div className="tags">
+                  {project.stack.map((tag) => (
+                    <span key={tag}>{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section muted" id="experience">
+        <div className="sectionHead split">
+          <div>
+            <p className="kicker">Experience & Awards</p>
+            <h2>경험&수상</h2>
+          </div>
+          <p>
+            전국 및 지역 대회, 교내 캡스톤, 외부 전시와 인턴십을 통해 데이터 분석과 AI 서비스 구현 역량을 검증했습니다.
+          </p>
+        </div>
+        <div className="awardList">
+          {awards.map(([year, title, description]) => (
+            <article className="awardItem" key={year + '-' + title}>
+              <span>{year}</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section contact" id="contact">
+        <div className="contactCopy">
+          <p className="kicker">Contact</p>
+          <h2>간단한 커피챗도 환영입니다.</h2>
+          <p>메일, 깃허브, 블로그 어디로든 편하게 연락주세요.</p>
+        </div>
+        <div className="contactList" aria-label="연락처 목록">
+          <a href="mailto:chldlsrb08@naver.com"><span>Mail</span><strong>chldlsrb08@naver.com</strong></a>
+          <a href="https://github.com/yeeeengyu" target="_blank" rel="noreferrer"><span>GitHub</span><strong>github.com/yeeeengyu</strong></a>
+          <a href="https://yeeeengyu.tistory.com" target="_blank" rel="noreferrer"><span>Blog</span><strong>yeeeengyu.tistory.com</strong></a>
+          <a href="tel:01082699915"><span>Phone</span><strong>010-8269-9915</strong></a>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <p>© 2026 Choi Ingyu. AI Backend Portfolio.</p>
+        <a href="#home">맨 위로</a>
+      </footer>
+    </main>
+  );
+}

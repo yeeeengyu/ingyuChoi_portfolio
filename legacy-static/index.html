@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>최인규 | AI Backend Portfolio</title>
+    <meta
+      name="description"
+      content="AI 모델을 실서비스에 통합하고 안정적으로 운용하는 백엔드 개발자 최인규의 포트폴리오"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="최인규 포트폴리오 홈">
+        <span class="brand-mark">IK</span>
+        <span>최인규</span>
+      </a>
+      <nav class="nav" aria-label="주요 메뉴">
+        <a href="#home">랜딩</a>
+        <a href="#projects">프로젝트</a>
+        <a href="#experience">경험&수상</a>
+        <a href="#contact">연락처</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-media" aria-hidden="true"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">AI Backend · Inference Server · MLOps</p>
+          <h1>AI 모델을 서비스로 연결하는 백엔드 개발자, 최인규입니다.</h1>
+          <p class="hero-copy">
+            RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 바탕으로 모델이 실제 환경에서
+            안정적으로 동작하도록 설계하고 구현합니다.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#projects">프로젝트 보기</a>
+            <a class="button secondary" href="#contact">연락하기</a>
+          </div>
+          <dl class="hero-stats" aria-label="핵심 경험">
+            <div>
+              <dt>4+</dt>
+              <dd>AI 서비스 프로젝트</dd>
+            </div>
+            <div>
+              <dt>7B</dt>
+              <dd>LLM 양자화 경험</dd>
+            </div>
+            <div>
+              <dt>6위</dt>
+              <dd>데이터 캠프 입상</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="intro section-band" aria-labelledby="intro-title">
+        <div class="section-inner intro-grid">
+          <div>
+            <p class="section-kicker">About Me</p>
+            <h2 id="intro-title">모델 구현에서 배포와 운영까지, 서비스 관점으로 AI를 다룹니다.</h2>
+          </div>
+          <div class="intro-copy">
+            <p>
+              중학교 AI 동아리 부장을 맡으며 인공지능에 관심을 갖기 시작했고, 고등학교 입학 후
+              LLM과 비전 기술을 활용한 프로젝트를 이어왔습니다. 모델 성능뿐 아니라 제한된 자원,
+              추론 속도, 메모리 사용량, API 연동까지 함께 고려하는 개발을 지향합니다.
+            </p>
+            <p>
+              협업에서는 API 형식과 데이터 구조처럼 공통 기준을 먼저 정리해 역할을 분리하고,
+              병렬적으로 개발할 수 있는 환경을 만드는 데 강점이 있습니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="stack section-band muted" aria-labelledby="stack-title">
+        <div class="section-inner">
+          <div class="section-heading">
+            <p class="section-kicker">Stack</p>
+            <h2 id="stack-title">주요 기술 스택</h2>
+          </div>
+          <div class="stack-grid">
+            <article class="stack-item">
+              <h3>AI / ML</h3>
+              <p>Python, PyTorch, llama.cpp, FAISS, LangChain, OpenAI API, YOLOv11, MediaPipe</p>
+            </article>
+            <article class="stack-item">
+              <h3>Backend / Infra</h3>
+              <p>FastAPI, MongoDB, Docker, AWS EC2, Nginx, inference server, API lifecycle</p>
+            </article>
+            <article class="stack-item">
+              <h3>Tools</h3>
+              <p>Git, Notion, Codex, 데이터 전처리, 서비스 문서화, 트러블슈팅 기록</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects section-band" id="projects" aria-labelledby="projects-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <div>
+              <p class="section-kicker">Projects</p>
+              <h2 id="projects-title">프로젝트</h2>
+            </div>
+            <p>
+              AI 모델 개발에 그치지 않고 백엔드, 인프라, 서비스 연동까지 맡아 실제 동작하는
+              제품 형태로 구현한 경험들입니다.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card featured">
+              <div class="project-meta">
+                <span>Team</span>
+                <span>2025.08 - 2025.12</span>
+              </div>
+              <h3>DOGTOR</h3>
+              <p class="project-subtitle">온디바이스 AI 기반 애완견 케어 서비스</p>
+              <p>
+                OceanLight와 협업한 캡스톤 프로젝트로, 반려견 케어와 동물병원 연계를 돕는
+                AI 서비스를 구현했습니다. 2026 AI Expo Korea 국제인공지능대전에 출품되었습니다.
+              </p>
+              <ul class="project-points">
+                <li>Qwen2.5-7B-Instruct 모델을 llama.cpp 기반 4bit GGUF로 양자화</li>
+                <li>수의사 대화 QA 데이터 전처리 및 paraphrasing, 역번역 증강</li>
+                <li>FastAPI inference 서버에서 LLM preload로 지연 시간과 안정성 개선</li>
+              </ul>
+              <div class="tags">
+                <span>FastAPI</span>
+                <span>llama.cpp</span>
+                <span>Qwen2.5</span>
+                <span>Docker</span>
+                <span>EC2</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Team</span>
+                <span>2025.03 - 2025.07</span>
+              </div>
+              <h3>Fresh Money</h3>
+              <p class="project-subtitle">청년정책 및 재정관리 추천 서비스</p>
+              <p>
+                사회초년생의 재정관리를 돕기 위해 투자 방식, 금융상품, 청년지원정책 추천과
+                자산 관련 챗봇을 제공한 프로젝트입니다.
+              </p>
+              <ul class="project-points">
+                <li>은행상품 크롤링 후 임베딩 및 FAISS 기반 벡터 검색 구축</li>
+                <li>LangChain LCEL과 RetrievalQA 체인으로 RAG 파이프라인 구성</li>
+                <li>Few-shot 프롬프팅으로 JSON 응답 안정화 및 422 오류 해결</li>
+              </ul>
+              <div class="tags">
+                <span>FastAPI</span>
+                <span>MongoDB</span>
+                <span>LangChain</span>
+                <span>FAISS</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Team</span>
+                <span>2025.09 - 2025.11</span>
+              </div>
+              <h3>LightBox</h3>
+              <p class="project-subtitle">실시간 졸음운전 감지 서비스</p>
+              <p>
+                YOLO와 MediaPipe FaceMesh를 활용해 눈 감김을 감지하고, 주행 종료 후 졸음
+                발생 구간을 리와인드 분석으로 제공한 서비스입니다.
+              </p>
+              <ul class="project-points">
+                <li>EAR 알고리즘으로 사용자별 눈 폭 차이를 고려한 졸음 판단 구현</li>
+                <li>YOLO 기반 얼굴 및 눈 영역 crop으로 오탐 감소</li>
+                <li>CPU 추론 환경에서 imgsz 조정으로 실시간 처리 안정성 확보</li>
+              </ul>
+              <div class="tags">
+                <span>YOLOv11</span>
+                <span>MediaPipe</span>
+                <span>FastAPI</span>
+                <span>EC2</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-meta">
+                <span>Personal</span>
+                <span>2026.01 - 2026.02</span>
+              </div>
+              <h3>Swagger Inspector</h3>
+              <p class="project-subtitle">OpenAPI RAG 분석 챗봇 서비스</p>
+              <p>
+                기능이 많은 백엔드 API 문서를 챗봇 형태로 탐색할 수 있도록 만든 개인 프로젝트입니다.
+                문서 신뢰도를 기반으로 검색 결과를 제어하도록 설계했습니다.
+              </p>
+              <ul class="project-points">
+                <li>MongoDB Vector Search와 text-embedding-3-small 기반 임베딩 구성</li>
+                <li>OpenAPI 스펙 전체 주입 대신 검색 기반 응답으로 토큰 비용 절감</li>
+                <li>threshold 조절과 참고 문서 신뢰도 표시로 응답 신뢰성 개선</li>
+              </ul>
+              <div class="tags">
+                <span>FastAPI</span>
+                <span>MongoDB</span>
+                <span>OpenAI</span>
+                <span>Codex</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience section-band muted" id="experience" aria-labelledby="experience-title">
+        <div class="section-inner">
+          <div class="section-heading wide">
+            <div>
+              <p class="section-kicker">Experience & Awards</p>
+              <h2 id="experience-title">경험&수상</h2>
+            </div>
+            <p>
+              전국 및 지역 대회, 교내 캡스톤, 외부 전시와 인턴십을 통해 데이터 분석과
+              AI 서비스 구현 역량을 검증했습니다.
+            </p>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <span class="timeline-year">2026</span>
+              <div>
+                <h3>AI Expo Korea 작품 출품</h3>
+                <p>Dogtor 프로젝트를 2026 AI Expo Korea 국제인공지능대전에 3일간 출품했습니다.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-year">2025</span>
+              <div>
+                <h3>캡스톤 프로젝트 은상 · 동상</h3>
+                <p>Fresh Money로 은상, Dogtor로 동상을 수상했습니다.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-year">2025</span>
+              <div>
+                <h3>전국 고등학교 동아리 SW 경진대회 장려</h3>
+                <p>YOLO와 MediaPipe 기반 졸음운전 감지 서비스 LightBox로 본선 프로젝트를 수행했습니다.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-year">2025</span>
+              <div>
+                <h3>제7회 데이터 크리에이터 캠프 장려</h3>
+                <p>500여 개 팀 중 6위에 입상하며 데이터 분석과 문제 해결 역량을 검증했습니다.</p>
+              </div>
+            </article>
+            <article class="timeline-item">
+              <span class="timeline-year">2024-2026</span>
+              <div>
+                <h3>외부 활동 및 자격</h3>
+                <p>
+                  Apple Foundation Program @ POSTECH 3기, 퀀텀아이 1개월 인턴십,
+                  실리콘밸리 견학, 정보처리기능사, 파이썬 프로그래밍 3급, 딥러닝활용자격증 3급.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact section-band" id="contact" aria-labelledby="contact-title">
+        <div class="section-inner contact-grid">
+          <div>
+            <p class="section-kicker">Contact</p>
+            <h2 id="contact-title">함께 이야기할 준비가 되어 있습니다.</h2>
+            <p>
+              AI 엔지니어링, 모델 서빙, 백엔드 API, 서비스 배포에 관심이 많습니다.
+              공부하고 해결한 내용은 블로그와 깃허브에 꾸준히 기록하고 있습니다.
+            </p>
+          </div>
+          <div class="contact-list" aria-label="연락처 목록">
+            <a href="mailto:chldlsrb08@naver.com">
+              <span>Mail</span>
+              <strong>chldlsrb08@naver.com</strong>
+            </a>
+            <a href="https://github.com/yeeeengyu" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <strong>github.com/yeeeengyu</strong>
+            </a>
+            <a href="https://yeeeengyu.tistory.com" target="_blank" rel="noreferrer">
+              <span>Blog</span>
+              <strong>yeeeengyu.tistory.com</strong>
+            </a>
+            <a href="tel:01082699915">
+              <span>Phone</span>
+              <strong>010-8269-9915</strong>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Choi Ingyu. AI Backend Portfolio.</p>
+      <a href="#home">맨 위로</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
