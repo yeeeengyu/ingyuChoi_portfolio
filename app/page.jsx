@@ -1,3 +1,5 @@
+const portfolioPdf = '/최인규_포트폴리오.pdf';
+
 const projects = [
   {
     title: 'DOGTOR',
@@ -6,6 +8,11 @@ const projects = [
     context: 'OceanLight와 협업한 캡스톤 프로젝트로, 반려견 케어와 동물병원 연계를 돕는 AI 서비스를 구현했습니다. 2026 AI Expo Korea 국제인공지능대전에 출품되었습니다.',
     role: 'AI · AIBE · Infra',
     impact: '7B 모델 15GB를 4.1GB GGUF로 경량화하고 FastAPI inference 서버에서 preload 구조를 적용했습니다.',
+    evidence: [
+      ['Problem', '대형 LLM을 제한된 실행 환경에서 반복 호출해야 하는 구조'],
+      ['Solution', '4bit GGUF 양자화와 FastAPI lifespan preload로 추론 서버 구성'],
+      ['Result', '모델 용량 15GB에서 4.1GB로 축소, API 요청 시 재로드 비용 제거']
+    ],
     points: [
       'Qwen2.5-7B-Instruct 모델을 llama.cpp 기반 4bit GGUF로 양자화',
       '수의사 대화 QA 데이터 전처리, paraphrasing, 역번역 증강',
@@ -20,6 +27,11 @@ const projects = [
     context: '사회초년생의 재정관리를 돕기 위해 투자 방식, 금융상품, 청년지원정책 추천과 자산 관련 챗봇을 제공한 프로젝트입니다.',
     role: 'AI · AIBE · Infra',
     impact: '은행상품 데이터와 청년정책 문서를 RAG로 연결해 추천 결과의 근거성과 확장성을 높였습니다.',
+    evidence: [
+      ['Problem', '금융상품과 정책 문서가 분산되어 추천 근거를 유지하기 어려운 상황'],
+      ['Solution', '크롤링 데이터 임베딩, FAISS 검색, LCEL 기반 RAG 파이프라인 구성'],
+      ['Result', '근거 문서 기반 추천 흐름을 만들고 JSON 응답 오류를 few-shot으로 안정화']
+    ],
     points: [
       '제1금융권 금융상품 크롤링 후 임베딩 및 FAISS 벡터 검색 구축',
       'LangChain LCEL과 RetrievalQA 체인 기반 RAG 파이프라인 작성',
@@ -34,6 +46,11 @@ const projects = [
     context: 'YOLO와 MediaPipe FaceMesh를 활용해 눈 감김을 감지하고, 주행 종료 후 졸음 발생 구간을 리와인드 분석으로 제공했습니다.',
     role: 'AI · AIBE · Infra',
     impact: 'GPU 제약 상황에서도 CPU 추론 파이프라인을 조정해 실시간 처리 안정성을 확보했습니다.',
+    evidence: [
+      ['Problem', 'GPU 없이 실시간 영상 추론과 눈 감김 감지를 함께 처리해야 하는 제약'],
+      ['Solution', 'YOLO crop, FaceMesh 랜드마크, EAR 계산으로 감지 범위와 연산량 조정'],
+      ['Result', 'CPU 환경에서도 실시간 처리 흐름을 유지하도록 imgsz와 감지 로직 튜닝']
+    ],
     points: [
       '눈 주변 6개 랜드마크와 EAR 알고리즘으로 사용자별 눈 폭 차이 대응',
       'YOLO 기반 얼굴 및 눈 영역 crop으로 오탐 감소',
@@ -48,6 +65,11 @@ const projects = [
     context: '기능이 많은 백엔드 API 문서를 챗봇 형태로 탐색할 수 있도록 만든 개인 프로젝트입니다.',
     role: 'Agent · Backend · AI',
     impact: '문서 신뢰도와 threshold를 응답에 반영해 사실과 다른 API 안내가 섞이는 문제를 줄였습니다.',
+    evidence: [
+      ['Problem', 'OpenAPI 전체 스펙을 매번 주입하면 비용이 커지고 잘못된 API 안내가 섞이는 문제'],
+      ['Solution', 'MongoDB Vector Search와 embedding 기반 검색으로 필요한 문서만 주입'],
+      ['Result', '참고 문서 신뢰도와 threshold를 응답에 반영해 답변 근거를 드러냄']
+    ],
     points: [
       'MongoDB Vector Search와 text-embedding-3-small 기반 문서 임베딩',
       'OpenAPI 스펙 전체 주입 대신 검색 기반 응답으로 토큰 비용 절감',
@@ -81,6 +103,8 @@ export default function Home() {
         </a>
         <nav className="nav" aria-label="주요 메뉴">
           <a href="#home">랜딩</a>
+          <a href="#about">About</a>
+          <a href="#stack">Stack</a>
           <a href="#projects">프로젝트</a>
           <a href="#experience">경험&수상</a>
           <a href="#contact">연락처</a>
@@ -102,13 +126,14 @@ export default function Home() {
             </p>
             <div className="heroActions">
               <a className="button primary" href="#projects">프로젝트 보기</a>
+              <a className="button ghost" href={portfolioPdf} target="_blank" rel="noreferrer">PDF 보기</a>
               <a className="button ghost" href="#contact">연락하기</a>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section intro">
+      <section className="section intro" id="about">
         <div className="sectionHead split">
           <div>
             <p className="kicker">About</p>
@@ -120,7 +145,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section muted">
+      <section className="section muted" id="stack">
         <div className="sectionHead">
           <p className="kicker">Stack</p>
           <h2>주요 기술 스택</h2>
@@ -142,7 +167,7 @@ export default function Home() {
             <h2>프로젝트</h2>
           </div>
           <p>
-            프로젝트마다 AI 모델, 백엔드 API, 인프라, 트러블슈팅을 함께 다뤘습니다. 아래 내용은 역할과 기술적 의사결정이 보이도록 재정리했습니다.
+            프로젝트마다 AI 모델, 백엔드 API, 인프라, 트러블슈팅을 함께 다뤘습니다. 문제 상황과 해결 방식, 결과가 바로 보이도록 정리했고 상세 자료는 PDF에서 확인할 수 있습니다.
           </p>
         </div>
 
@@ -164,6 +189,14 @@ export default function Home() {
                 </div>
               </div>
               <div className="projectDetail">
+                <div className="projectEvidence">
+                  {project.evidence.map(([label, value]) => (
+                    <div key={label}>
+                      <span>{label}</span>
+                      <p>{value}</p>
+                    </div>
+                  ))}
+                </div>
                 <ul>
                   {project.points.map((point) => (
                     <li key={point}>{point}</li>
@@ -174,6 +207,7 @@ export default function Home() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
+                <a className="resourceLink" href={portfolioPdf} target="_blank" rel="noreferrer">포트폴리오 PDF에서 더 보기</a>
               </div>
             </article>
           ))}
@@ -204,10 +238,11 @@ export default function Home() {
       <section className="section contact" id="contact">
         <div className="contactCopy">
           <p className="kicker">Contact</p>
-          <h2>간단한 커피챗도 환영입니다.</h2>
-          <p>메일, 깃허브, 블로그 어디로든 편하게 연락주세요.</p>
+          <h2>AI 백엔드와 추론 서버 포지션 관련 대화를 기다립니다.</h2>
+          <p>프로젝트 자료, 깃허브, 블로그를 함께 확인하실 수 있습니다.</p>
         </div>
         <div className="contactList" aria-label="연락처 목록">
+          <a href={portfolioPdf} target="_blank" rel="noreferrer"><span>PDF</span><strong>최인규_포트폴리오.pdf</strong></a>
           <a href="mailto:chldlsrb08@naver.com"><span>Mail</span><strong>chldlsrb08@naver.com</strong></a>
           <a href="https://github.com/yeeeengyu" target="_blank" rel="noreferrer"><span>GitHub</span><strong>github.com/yeeeengyu</strong></a>
           <a href="https://yeeeengyu.tistory.com" target="_blank" rel="noreferrer"><span>Blog</span><strong>yeeeengyu.tistory.com</strong></a>

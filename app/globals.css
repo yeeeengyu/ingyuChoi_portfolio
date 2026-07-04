@@ -24,6 +24,7 @@ body {
   margin: 0;
   min-height: 100%;
   background: var(--bg);
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -93,9 +94,9 @@ p {
 }
 
 .nav {
-  gap: clamp(18px, 2.8vw, 40px);
+  gap: clamp(14px, 2vw, 28px);
   color: #ffffff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
 }
 
@@ -394,6 +395,35 @@ p {
   color: #354555;
 }
 
+.projectEvidence {
+  display: grid;
+  gap: 1px;
+  margin-bottom: 22px;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
+
+.projectEvidence div {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 16px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.projectEvidence span {
+  color: var(--blue-deep);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.projectEvidence p {
+  color: #354555;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
 .projectDetail li::marker {
   color: var(--blue-deep);
 }
@@ -415,6 +445,16 @@ p {
   color: #2c4f6d;
   font-size: 12px;
   font-weight: 850;
+}
+
+.resourceLink {
+  display: inline-flex;
+  margin-top: 18px;
+  color: var(--blue-deep);
+  font-size: 14px;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .awardList {
@@ -544,7 +584,7 @@ p {
 
   .nav {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
     font-size: 12px;
   }
@@ -576,7 +616,7 @@ p {
 
   .heroGrid {
     width: min(100% - 32px, 1160px);
-    padding: 150px 0 58px;
+    padding: 182px 0 58px;
   }
 
   .heroLead {
@@ -616,6 +656,11 @@ p {
   }
 
   .contactList a {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .projectEvidence div {
     grid-template-columns: 1fr;
     gap: 4px;
   }
