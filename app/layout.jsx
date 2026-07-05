@@ -23,10 +23,10 @@ export const metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/hero-ai-workspace.png',
-        width: 1717,
-        height: 916,
-        alt: '최인규 AI 백엔드 포트폴리오 히어로 이미지'
+        url: '/images/banner.png',
+        width: 1500,
+        height: 600,
+        alt: '최인규 실시간 수어 번역 발표 사진'
       }
     ]
   },
@@ -34,7 +34,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: '최인규 | AI Backend Portfolio',
     description: 'RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 보유한 AI 백엔드 개발자 포트폴리오',
-    images: ['/images/hero-ai-workspace.png']
+    images: ['/images/banner.png']
   },
   robots: {
     index: true,

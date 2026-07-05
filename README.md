@@ -31,5 +31,5 @@ NEXT_PUBLIC_SITE_URL=https://your-domain.example
 
 - 프로젝트, 수상, 기술 스택: `app/page.jsx`
 - 디자인 토큰과 반응형 스타일: `app/globals.css`
-- 히어로 이미지: `public/images/hero-ai-workspace.png`
+- 히어로 이미지: `public/images/banner.png`
 - 이전 정적 데모 백업: `legacy-static/`

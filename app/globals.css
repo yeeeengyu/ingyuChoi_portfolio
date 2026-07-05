@@ -107,6 +107,7 @@ p {
   min-height: 40px;
   padding: 0 2px;
   color: rgba(255, 255, 255, 0.88);
+  white-space: nowrap;
 }
 
 .nav a::before,
@@ -155,7 +156,7 @@ p {
   z-index: -2;
   background:
     linear-gradient(90deg, rgba(248, 248, 248, 0.98) 0%, rgba(248, 248, 248, 0.88) 42%, rgba(248, 248, 248, 0.28) 100%),
-    url('/images/hero-ai-workspace.png') right center / cover no-repeat;
+    url('/images/banner.png') right center / cover no-repeat;
 }
 
 .hero::after {
@@ -239,6 +240,8 @@ p {
   padding: 0 22px;
   border: 1px solid var(--blue-deep);
   font-weight: 850;
+  text-align: center;
+  white-space: nowrap;
 }
 
 .button.primary {
@@ -534,6 +537,7 @@ p {
 .contactList strong {
   font-size: 17px;
   overflow-wrap: anywhere;
+  min-width: 0;
 }
 
 .footer {
@@ -611,7 +615,7 @@ p {
   .heroBackdrop {
     background:
       linear-gradient(180deg, rgba(248, 248, 248, 0.98) 0%, rgba(248, 248, 248, 0.9) 68%, rgba(248, 248, 248, 0.74) 100%),
-      url('/images/hero-ai-workspace.png') center bottom / cover no-repeat;
+      url('/images/banner.png') center bottom / cover no-repeat;
   }
 
   .heroGrid {
@@ -625,10 +629,6 @@ p {
 
   .hero h1 {
     font-size: 43px;
-  }
-
-  .hero h1 span {
-    display: inline;
   }
 
   .heroActions,

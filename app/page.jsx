@@ -238,7 +238,7 @@ export default function Home() {
       <section className="section contact" id="contact">
         <div className="contactCopy">
           <p className="kicker">Contact</p>
-          <h2>AI 백엔드와 추론 서버 포지션 관련 대화를 기다립니다.</h2>
+          <h2>간단한 커피챗도 환영입니다.</h2>
           <p>프로젝트 자료, 깃허브, 블로그를 함께 확인하실 수 있습니다.</p>
         </div>
         <div className="contactList" aria-label="연락처 목록">

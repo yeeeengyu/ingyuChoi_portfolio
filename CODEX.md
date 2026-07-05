@@ -31,7 +31,7 @@ npm run build
 - `app/globals.css`: 전역 스타일, 색상 토큰, 레이아웃, 반응형 스타일
 - `app/layout.jsx`: 메타데이터, Open Graph, `NEXT_PUBLIC_SITE_URL` 처리
 - `next.config.mjs`: `output: 'export'`, `trailingSlash: true` 설정
-- `public/images/hero-ai-workspace.png`: 실제 페이지에서 사용하는 히어로 이미지
+- `public/images/banner.png`: 실제 페이지에서 사용하는 히어로 이미지
 - `assets/hero-ai-workspace.png`: 원본 또는 보관용 히어로 이미지
 - `screenshots/`: 데스크톱/모바일 확인용 스크린샷
 
