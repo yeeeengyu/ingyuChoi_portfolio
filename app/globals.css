@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap');
+
 :root {
   --bg: #f8f8f8;
   --ink: #101820;
@@ -11,7 +13,7 @@
   --gold: #a88750;
   color: var(--ink);
   background: var(--bg);
-  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -214,30 +216,102 @@ p {
   font-size: 18px;
 }
 
-.stackGrid {
+.stackTicker {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1px;
+  gap: 14px;
+}
+
+.stackBand {
+  display: grid;
+  grid-template-columns: 178px minmax(0, 1fr);
+  min-height: 78px;
+  overflow: hidden;
   border: 1px solid var(--line);
-  background: var(--line);
+  background: rgba(255, 255, 255, 0.66);
 }
 
-.stackItem {
-  min-height: 190px;
-  padding: 28px;
-  background: rgba(255, 255, 255, 0.78);
+.stackBandLabel {
+  display: flex;
+  align-items: center;
+  padding: 18px 22px;
+  border-right: 1px solid var(--line);
+  background: rgba(248, 248, 248, 0.74);
+  color: var(--blue-deep);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.25;
 }
 
-.stackItem h3,
+.stackMarquee {
+  display: flex;
+  min-width: 0;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0, black 7%, black 93%, transparent 100%);
+}
+
+.stackTrack {
+  display: flex;
+  width: max-content;
+  animation: stackScroll 30s linear infinite;
+}
+
+.stackBand:nth-child(even) .stackTrack {
+  animation-direction: reverse;
+  animation-duration: 34s;
+}
+
+.stackLoop {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  align-items: center;
+  padding: 18px 10px 18px 0;
+}
+
+.skillPill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #b8c8d8;
+  background: rgba(255, 255, 255, 0.9);
+  color: #2c4f6d;
+  font-size: 14px;
+  font-weight: 850;
+  white-space: nowrap;
+}
+
+@keyframes stackScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stackTrack {
+    animation: none;
+    transform: none;
+  }
+
+  .stackLoop[aria-hidden="true"] {
+    display: none;
+  }
+
+  .stackMarquee {
+    overflow-x: auto;
+    mask-image: none;
+  }
+}
+
 .projectItem h3,
 .awardItem h3 {
   font-size: 22px;
   line-height: 1.25;
-}
-
-.stackItem p {
-  margin-top: 14px;
-  color: var(--muted);
 }
 
 .projectList {
@@ -481,7 +555,6 @@ p {
     font-size: 20px;
   }
 
-  .stackGrid,
   .awardList {
     grid-template-columns: 1fr 1fr;
   }
@@ -530,9 +603,22 @@ p {
     padding: 72px 16px;
   }
 
-  .stackGrid,
   .awardList {
     grid-template-columns: 1fr;
+  }
+
+  .stackBand {
+    grid-template-columns: 1fr;
+  }
+
+  .stackBandLabel {
+    min-height: 54px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stackMarquee {
+    mask-image: linear-gradient(90deg, transparent 0, black 12%, black 88%, transparent 100%);
   }
 
   .awardItem {

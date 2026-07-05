@@ -135,12 +135,24 @@ export default function Home() {
           <p className="kicker">Stack</p>
           <h2>주요 기술 스택</h2>
         </div>
-        <div className="stackGrid">
+        <div className="stackTicker" aria-label="주요 기술 스택 목록">
           {stacks.map(([title, description]) => (
-            <article className="stackItem" key={title}>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
+            <div className="stackBand" key={title}>
+              <div className="stackBandLabel">
+                <span>{title}</span>
+              </div>
+              <div className="stackMarquee" aria-label={`${title} 기술`}>
+                <div className="stackTrack">
+                  {[0, 1].map((loop) => (
+                    <div className="stackLoop" aria-hidden={loop === 1 ? 'true' : undefined} key={`${title}-${loop}`}>
+                      {description.split(', ').map((skill) => (
+                        <span className="skillPill" key={`${title}-${loop}-${skill}`}>{skill}</span>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </section>
