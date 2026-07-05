@@ -11,6 +11,15 @@ export const metadata = {
   creator: '최인규',
   publisher: '최인규',
   keywords: ['최인규', 'AI 백엔드', 'Inference Server', 'RAG', 'FastAPI', 'MLOps', '포트폴리오'],
+  icons: {
+    icon: [
+      {
+        url: '/images/python.svg',
+        type: 'image/svg+xml'
+      }
+    ],
+    shortcut: '/images/python.svg'
+  },
   alternates: {
     canonical: '/'
   },
