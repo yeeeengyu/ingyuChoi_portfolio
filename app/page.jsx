@@ -88,9 +88,9 @@ const awards = [
 ];
 
 const stacks = [
-  ['AI / ML', 'Python, PyTorch, llama.cpp, FAISS, LangChain, OpenAI API, YOLOv11, MediaPipe'],
-  ['Backend / Infra', 'FastAPI, MongoDB, Docker, AWS EC2, Nginx, inference server, API lifecycle'],
-  ['Tools', 'Git, Notion, Codex, 데이터 전처리, 서비스 문서화, 트러블슈팅 기록']
+  ['AI / ML', 'Python, PyTorch, LLM, RAG, LangChain, FAISS, OpenAI API, CV'],
+  ['Backend / Infra', 'FastAPI, MongoDB, Docker, AWS EC2, Nginx, REST API, Linux'],
+  ['Tools', 'Git, GitHub, Notion, Codex, VS Code, Postman']
 ];
 
 export default function Home() {
