@@ -96,6 +96,16 @@ const stacks = [
 export default function Home() {
   return (
     <main>
+      <header className="siteNav" aria-label="페이지 바로가기">
+        <nav className="partNav" aria-label="주요 섹션">
+          <a href="#about">About</a>
+          <a href="#stack">Stack</a>
+          <a href="#projects">프로젝트</a>
+          <a href="#experience">경험&수상</a>
+          <a href="#contact">연락처</a>
+        </nav>
+      </header>
+
       <section className="hero" id="home">
         <div className="heroBackdrop" />
         <div className="heroGrid">
