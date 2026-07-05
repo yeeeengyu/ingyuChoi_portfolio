@@ -130,27 +130,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section muted" id="stack">
-        <div className="sectionHead">
-          <p className="kicker">Stack</p>
-          <h2>주요 기술 스택</h2>
-        </div>
+      <section className="section muted stackStrip" id="stack" aria-label="사용 기술">
         <div className="stackTicker" aria-label="주요 기술 스택 목록">
-          {stacks.map(([title, description]) => (
-            <div className="stackBand" key={title}>
-              <div className="stackBandLabel">
-                <span>{title}</span>
-              </div>
-              <div className="stackMarquee" aria-label={`${title} 기술`}>
-                <div className="stackTrack">
-                  {[0, 1].map((loop) => (
-                    <div className="stackLoop" aria-hidden={loop === 1 ? 'true' : undefined} key={`${title}-${loop}`}>
-                      {description.split(', ').map((skill) => (
-                        <span className="skillPill" key={`${title}-${loop}-${skill}`}>{skill}</span>
-                      ))}
-                    </div>
-                  ))}
-                </div>
+          {stacks.map(([, description], index) => (
+            <div className="stackMarquee" aria-label={`사용 기술 ${index + 1}`} key={description}>
+              <div className="stackTrack">
+                {[0, 1].map((loop) => (
+                  <div className="stackLoop" aria-hidden={loop === 1 ? 'true' : undefined} key={`${index}-${loop}`}>
+                    {description.split(', ').map((skill) => (
+                      <span className="skillPill" key={`${index}-${loop}-${skill}`}>{skill}</span>
+                    ))}
+                  </div>
+                ))}
               </div>
             </div>
           ))}
