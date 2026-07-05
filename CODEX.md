@@ -72,6 +72,8 @@ CONTACT 영역은 `app/page.jsx` 하단의 `section.contact`에서 수정합니�
 npm run build
 ```
 
+Windows 환경에서 검증 명령을 실행할 때는 PowerShell 대신 `cmd.exe` 또는 Git Bash를 사용합니다. 예를 들어 PowerShell의 `npm.ps1` 실행 정책 문제를 피하려면 `cmd.exe /c npm.cmd run build`처럼 실행합니다.
+
 디자인 변경이 있으면 다음도 눈으로 확인합니다.
 
 - 데스크톱에서 히어로 카피가 답답하게 줄바꿈되지 않는지

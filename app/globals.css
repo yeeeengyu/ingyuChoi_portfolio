@@ -24,7 +24,7 @@ body {
   margin: 0;
   min-height: 100%;
   background: var(--bg);
-  scroll-padding-top: 80px;
+  scroll-padding-top: 0;
 }
 
 body {
@@ -54,92 +54,6 @@ h3 {
 
 p {
   overflow-wrap: anywhere;
-}
-
-.siteHeader {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 72px;
-  padding: 0 clamp(22px, 4vw, 56px);
-  background: transparent;
-}
-
-.brand,
-.nav {
-  display: flex;
-  align-items: center;
-}
-
-.brand {
-  gap: 12px;
-  font-weight: 800;
-}
-
-.brandMark {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(255, 255, 255, 0.42);
-  background: rgba(36, 79, 121, 0.78);
-  color: white;
-  font-size: 12px;
-  letter-spacing: 0;
-}
-
-.nav {
-  gap: clamp(14px, 2vw, 28px);
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.nav a {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  min-height: 40px;
-  padding: 0 2px;
-  color: rgba(255, 255, 255, 0.88);
-  white-space: nowrap;
-}
-
-.nav a::before,
-.nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 5px;
-  height: 1px;
-}
-
-.nav a::before {
-  background: rgba(255, 255, 255, 0.28);
-}
-
-.nav a::after {
-  background: #e9f4ff;
-  transform: scaleX(0.28);
-  transform-origin: left center;
-  opacity: 0.42;
-  transition: transform 160ms ease, opacity 160ms ease, height 160ms ease;
-}
-
-.nav a:hover {
-  color: #ffffff;
-}
-
-.nav a:hover::after {
-  height: 2px;
-  opacity: 1;
-  transform: scaleX(1);
 }
 
 .hero {
@@ -574,36 +488,6 @@ p {
 }
 
 @media (max-width: 640px) {
-  .siteHeader {
-    position: absolute;
-    align-items: stretch;
-    flex-direction: column;
-    gap: 12px;
-    padding-block: 14px;
-  }
-
-  .brand {
-    justify-content: space-between;
-  }
-
-  .nav {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    font-size: 12px;
-  }
-
-  .nav a {
-    justify-content: center;
-    min-height: 34px;
-    padding-inline: 0;
-  }
-
-  .nav a::before,
-  .nav a::after {
-    bottom: 2px;
-  }
-
   .hero {
     min-height: 100vh;
   }
@@ -620,7 +504,7 @@ p {
 
   .heroGrid {
     width: min(100% - 32px, 1160px);
-    padding: 182px 0 58px;
+    padding: 104px 0 58px;
   }
 
   .heroLead {

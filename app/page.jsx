@@ -96,21 +96,6 @@ const stacks = [
 export default function Home() {
   return (
     <main>
-      <header className="siteHeader">
-        <a className="brand" href="#home" aria-label="최인규 포트폴리오 홈">
-          <span className="brandMark">IK</span>
-          <span>최인규</span>
-        </a>
-        <nav className="nav" aria-label="주요 메뉴">
-          <a href="#home">랜딩</a>
-          <a href="#about">About</a>
-          <a href="#stack">Stack</a>
-          <a href="#projects">프로젝트</a>
-          <a href="#experience">경험&수상</a>
-          <a href="#contact">연락처</a>
-        </nav>
-      </header>
-
       <section className="hero" id="home">
         <div className="heroBackdrop" />
         <div className="heroGrid">
