@@ -310,7 +310,7 @@ p {
   min-height: 52px;
   overflow: hidden;
   border-block: 1px solid rgba(159, 177, 196, 0.58);
-  mask-image: linear-gradient(90deg, transparent 0, black 7%, black 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, black 2%, black 98%, transparent 100%);
 }
 
 .stackTrack {
@@ -329,7 +329,7 @@ p {
   flex: 0 0 auto;
   gap: 10px;
   align-items: center;
-  padding: 8px 10px 8px 0;
+  padding: 8px 16px 8px 0;
 }
 
 .skillPill {
@@ -465,7 +465,7 @@ p {
 .projectEvidence {
   display: grid;
   gap: 1px;
-  margin-bottom: 22px;
+  margin-top: 22px;
   border: 1px solid var(--line);
   background: var(--line);
 }
@@ -804,7 +804,7 @@ p {
 
   .stackMarquee {
     min-height: 50px;
-    mask-image: linear-gradient(90deg, transparent 0, black 12%, black 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, black 4%, black 96%, transparent 100%);
   }
 
   .awardItem {

@@ -162,14 +162,11 @@ export default function Home() {
       </section>
 
       <section className="section projects" id="projects">
-        <div className="sectionHead split">
+        <div className="sectionHead">
           <div>
             <p className="kicker">Projects</p>
             <h2>프로젝트</h2>
           </div>
-          <p>
-            프로젝트마다 AI 모델, 백엔드 API, 인프라, 트러블슈팅을 함께 다뤘습니다. 문제 상황과 해결 방식, 결과가 바로 보이도록 정리했고 상세 자료는 PDF에서 확인할 수 있습니다.
-          </p>
         </div>
 
         <div className="projectList">
@@ -190,6 +187,11 @@ export default function Home() {
                 </div>
               </div>
               <div className="projectDetail">
+                <ul>
+                  {project.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
                 <div className="projectEvidence">
                   {project.evidence.map(([label, value]) => (
                     <div key={label}>
@@ -198,11 +200,6 @@ export default function Home() {
                     </div>
                   ))}
                 </div>
-                <ul>
-                  {project.points.map((point) => (
-                    <li key={point}>{point}</li>
-                  ))}
-                </ul>
                 <div className="tags">
                   {project.stack.map((tag) => (
                     <span key={tag}>{tag}</span>
@@ -218,14 +215,11 @@ export default function Home() {
       </section>
 
       <section className="section muted" id="experience">
-        <div className="sectionHead split">
+        <div className="sectionHead">
           <div>
             <p className="kicker">Experience & Awards</p>
             <h2>경험&수상</h2>
           </div>
-          <p>
-            교내 캡스톤과 전국 대회에서는 아이디어를 실제 서비스 형태로 구현하고 발표까지 이어갔습니다. 외부 전시와 인턴십에서는 사용자에게 설명 가능한 결과물, 협업 과정에서 유지되는 문서화, 제한된 환경에서도 동작하는 구현 방식을 함께 경험했습니다.
-          </p>
         </div>
         <div className="awardGroups">
           {awardCategories.map((category) => (
