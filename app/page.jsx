@@ -104,7 +104,6 @@ export default function Home() {
         <div className="heroBackdrop" />
         <div className="heroGrid">
           <div className="heroCopy">
-            <p className="eyebrow">AI Backend · Inference Server · MLOps</p>
             <p className="heroLead">데이터 수집부터 모델 개발 · 서빙까지</p>
             <h1>
               <span>모든걸 경험한</span>
