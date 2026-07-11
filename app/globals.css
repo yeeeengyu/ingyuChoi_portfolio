@@ -383,6 +383,12 @@ p {
   border-top: 1px solid var(--line-strong);
 }
 
+.projectResource {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 24px;
+}
+
 .projectItem {
   display: grid;
   grid-template-columns: 72px minmax(0, 0.9fr) minmax(320px, 0.86fr);
@@ -414,11 +420,17 @@ p {
   color: var(--blue-deep);
   font-size: 18px;
   font-weight: 850;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 .projectContext {
   margin-top: 16px;
   color: var(--muted);
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 .impactBox {
@@ -504,12 +516,25 @@ p {
 
 .resourceLink {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
   margin-top: 18px;
+  padding: 0 16px;
+  border: 1px solid var(--blue-deep);
   color: var(--blue-deep);
   font-size: 14px;
   font-weight: 900;
-  text-decoration: underline;
-  text-underline-offset: 4px;
+  text-align: center;
+}
+
+.projectResource .resourceLink {
+  margin-top: 0;
+}
+
+.resourceLink:hover {
+  background: var(--blue-deep);
+  color: white;
 }
 
 .awardList {
@@ -521,9 +546,37 @@ p {
 }
 
 .awardItem {
+  position: relative;
   min-height: 260px;
   padding: 24px;
   background: rgba(255, 255, 255, 0.76);
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.awardItem::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--blue-deep);
+  opacity: 0;
+  transform: scaleX(0.28);
+  transform-origin: left center;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.awardItem:hover {
+  z-index: 1;
+  background: #ffffff;
+  box-shadow: 0 16px 34px rgba(16, 24, 32, 0.1);
+  transform: translateY(-6px);
+}
+
+.awardItem:hover::before {
+  opacity: 1;
+  transform: scaleX(1);
 }
 
 .awardItem span {

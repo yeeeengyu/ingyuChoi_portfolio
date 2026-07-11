@@ -172,7 +172,7 @@ export default function Home() {
               <div className="projectMain">
                 <div className="projectTopline">
                   <span>{project.label}</span>
-                  <span>{project.role}</span>
+                  {project.label.startsWith('Personal') ? null : <span>{project.role}</span>}
                 </div>
                 <h3>{project.title}</h3>
                 <p className="projectSummary">{project.summary}</p>
@@ -201,10 +201,12 @@ export default function Home() {
                     <span key={tag}>{tag}</span>
                   ))}
                 </div>
-                <a className="resourceLink" href={portfolioPdf} target="_blank" rel="noreferrer">포트폴리오 PDF에서 더 보기</a>
               </div>
             </article>
           ))}
+        </div>
+        <div className="projectResource">
+          <a className="resourceLink" href={portfolioPdf} target="_blank" rel="noreferrer">포트폴리오 PDF에서 더 보기</a>
         </div>
       </section>
 
