@@ -70,6 +70,23 @@ p {
   pointer-events: none;
 }
 
+.bodyNav {
+  position: fixed;
+  padding: 14px clamp(22px, 4vw, 56px);
+  background: rgba(248, 248, 248, 0.94);
+  border-bottom: 1px solid rgba(159, 177, 196, 0.72);
+  box-shadow: 0 10px 28px rgba(16, 24, 32, 0.08);
+  backdrop-filter: blur(16px);
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: opacity 180ms ease, transform 180ms ease, box-shadow 180ms ease;
+}
+
+.bodyNav.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .partNav {
   display: flex;
   align-items: center;
@@ -108,9 +125,19 @@ p {
   transform: scaleX(1);
 }
 
+.bodyNav .partNav a {
+  color: var(--blue-deep);
+  text-shadow: none;
+}
+
+.bodyNav .partNav a::after {
+  opacity: 0.3;
+}
+
 .hero {
   position: relative;
-  min-height: 100vh;
+  --hero-frame-height: min(100vh, calc(100vw * 9 / 16));
+  min-height: var(--hero-frame-height);
   overflow: hidden;
   border-bottom: 1px solid var(--line);
   isolation: isolate;
@@ -141,7 +168,7 @@ p {
   display: flex;
   align-items: center;
   width: min(1160px, calc(100% - 44px));
-  min-height: 100vh;
+  min-height: var(--hero-frame-height);
   margin: 0 auto;
   padding: clamp(74px, 9vw, 118px) 0 clamp(64px, 7vw, 94px);
 }
@@ -601,6 +628,10 @@ p {
     padding: 12px 16px 0;
   }
 
+  .bodyNav {
+    padding: 10px 16px;
+  }
+
   .partNav {
     flex-wrap: wrap;
     justify-content: center;
@@ -619,6 +650,7 @@ p {
   }
 
   .hero {
+    --hero-frame-height: 100vh;
     min-height: 100vh;
   }
 
