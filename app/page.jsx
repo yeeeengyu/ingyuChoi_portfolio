@@ -264,7 +264,7 @@ export default function Home() {
           <a href={portfolioPdf} target="_blank" rel="noreferrer"><span>PDF</span><strong>최인규_포트폴리오.pdf</strong></a>
           <a href="mailto:chldlsrb08@naver.com"><span>Mail</span><strong>chldlsrb08@naver.com</strong></a>
           <a href="https://github.com/yeeeengyu" target="_blank" rel="noreferrer"><span>GitHub</span><strong>github.com/yeeeengyu</strong></a>
-          <a href="https://yeeeengyu.tistory.com" target="_blank" rel="noreferrer"><span>Blog</span><strong>yeeeengyu.tistory.com</strong></a>
+          <a href="https://blog.ingyuc.click" target="_blank" rel="noreferrer"><span>Blog</span><strong>blog.ingyuc.click</strong></a>
           <a href="tel:01082699915"><span>Phone</span><strong>010-8269-9915</strong></a>
         </div>
       </section>
