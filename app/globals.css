@@ -579,9 +579,28 @@ p {
   transform: scaleX(1);
 }
 
-.awardItem span {
+.awardMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.awardMeta span:first-child {
   color: var(--gold);
   font-weight: 900;
+}
+
+.awardMeta span:last-child {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 0 9px;
+  border: 1px solid rgba(36, 79, 121, 0.22);
+  color: var(--blue-deep);
+  font-size: 12px;
+  font-weight: 900;
+  white-space: nowrap;
 }
 
 .awardItem h3 {

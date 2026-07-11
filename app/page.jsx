@@ -82,14 +82,14 @@ const projects = [
 ];
 
 const awards = [
-  ['2026', 'AI Expo Korea 작품 출품', 'Dogtor 프로젝트를 2026 AI Expo Korea 국제인공지능대전에 3일간 출품'],
-  ['2025', '교내 캡스톤 프로젝트 은상 · 동상', 'Fresh Money 은상, Dogtor 동상 수상'],
-  ['2025', '전국 고등학교 동아리 SW 경진대회 장려', 'YOLO와 MediaPipe 기반 LightBox 프로젝트 수행'],
-  ['2025', '제7회 데이터 크리에이터 캠프 장려', '500여 개 팀 중 6위 입상'],
-  ['2026', '실리콘밸리 견학', '현지 기술 기업과 개발 문화를 직접 살펴보며 서비스 기획과 실행 방식의 차이를 경험'],
-  ['2026', '퀀텀아이 인턴십', '현업 환경에서 개발 업무 흐름과 협업 방식, 결과물 관리 과정을 경험'],
-  ['2024', 'Apple Foundation Program @ POSTECH', '3기 과정에서 제품 기획, 사용자 관점의 문제 정의, 팀 기반 프로토타이핑을 수행'],
-  ['2025', '정보처리기능사', '개발 기초 역량과 정보처리 전반에 대한 이해를 확인한 국가기술자격 보유']
+  ['활동', '2026', 'AI Expo Korea 작품 출품', 'Dogtor 프로젝트를 2026 AI Expo Korea 국제인공지능대전에 3일간 출품'],
+  ['수상', '2025', '교내 캡스톤 프로젝트 은상 · 동상', 'Fresh Money 은상, Dogtor 동상 수상'],
+  ['수상', '2025', '전국 고등학교 동아리 SW 경진대회 장려', 'YOLO와 MediaPipe 기반 LightBox 프로젝트 수행'],
+  ['수상', '2025', '제7회 데이터 크리에이터 캠프 장려', '500여 개 팀 중 6위 입상'],
+  ['활동', '2026', '실리콘밸리 견학', '현지 기술 기업과 개발 문화를 직접 살펴보며 서비스 기획과 실행 방식의 차이를 경험'],
+  ['활동', '2026', '퀀텀아이 인턴십', '현업 환경에서 개발 업무 흐름과 협업 방식, 결과물 관리 과정을 경험'],
+  ['활동', '2024', 'Apple Foundation Program @ POSTECH', '3기 과정에서 제품 기획, 사용자 관점의 문제 정의, 팀 기반 프로토타이핑을 수행'],
+  ['자격', '2025', '정보처리기능사', '개발 기초 역량과 정보처리 전반에 대한 이해를 확인한 국가기술자격 보유']
 ];
 
 const stacks = [
@@ -224,9 +224,12 @@ export default function Home() {
           </p>
         </div>
         <div className="awardList">
-          {awards.map(([year, title, description]) => (
+          {awards.map(([category, year, title, description]) => (
             <article className="awardItem" key={year + '-' + title}>
-              <span>{year}</span>
+              <div className="awardMeta">
+                <span>{year}</span>
+                <span>{category}</span>
+              </div>
               <h3>{title}</h3>
               <p>{description}</p>
             </article>
