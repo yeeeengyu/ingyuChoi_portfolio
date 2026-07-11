@@ -51,7 +51,8 @@ h1,
 h2,
 h3 {
   word-break: keep-all;
-  overflow-wrap: normal;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 p {
@@ -188,12 +189,13 @@ p {
 
 .heroLead {
   max-width: 720px;
-  margin-top: 18px;
   color: #1e3f61;
   font-size: clamp(24px, 3.1vw, 38px);
   font-weight: 850;
   line-height: 1.25;
   word-break: keep-all;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
 .hero h1 {
@@ -203,11 +205,11 @@ p {
   line-height: 1.08;
   letter-spacing: 0;
   word-break: keep-all;
-  overflow-wrap: normal;
-  text-wrap: balance;
+  overflow-wrap: break-word;
+  text-wrap: pretty;
 }
 
-.hero h1 span {
+.titleLine {
   display: block;
 }
 
@@ -288,7 +290,7 @@ p {
   font-size: clamp(28px, 3.35vw, 44px);
   line-height: 1.18;
   letter-spacing: 0;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .sectionHead p:not(.kicker),
@@ -675,6 +677,14 @@ p {
 
   .hero h1 {
     font-size: 43px;
+  }
+
+  .titleLine {
+    display: inline;
+  }
+
+  .titleLine + .titleLine::before {
+    content: " ";
   }
 
   .heroActions,

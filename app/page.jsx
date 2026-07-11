@@ -106,8 +106,8 @@ export default function Home() {
           <div className="heroCopy">
             <p className="heroLead">데이터 수집부터 모델 개발 · 서빙까지</p>
             <h1>
-              <span>모든걸 경험한</span>
-              <span>AI백엔드 개발자</span>
+              <span className="titleLine">모든 걸 경험한</span>
+              <span className="titleLine">AI 백엔드 개발자</span>
             </h1>
             <p>
               RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 바탕으로 모델이 제한된 실행 환경에서도 안정적으로 동작하도록 설계하고 구현합니다.
@@ -125,7 +125,10 @@ export default function Home() {
         <div className="sectionHead split">
           <div>
             <p className="kicker">About</p>
-            <h2>모델 구현보다 더 오래 남는 건, 실제 환경에서 버티는 구조라고 생각합니다.</h2>
+            <h2>
+              <span className="titleLine">모델 구현보다 더 오래 남는 건,</span>
+              <span className="titleLine">실제 환경에서 버티는 구조라고 생각합니다.</span>
+            </h2>
           </div>
           <p>
             LLM과 비전 기술을 활용한 프로젝트를 진행하며 모델 성능뿐 아니라 추론 속도, 메모리 사용량, API 형식, 배포 환경까지 함께 고려해왔습니다. 협업에서는 인터페이스와 데이터 구조를 먼저 정리해 작업 기준을 맞추는 편입니다.
@@ -229,7 +232,10 @@ export default function Home() {
       <section className="section contact" id="contact">
         <div className="contactCopy">
           <p className="kicker">Contact</p>
-          <h2>간단한 커피챗도 환영입니다.</h2>
+          <h2>
+            <span className="titleLine">간단한 커피챗도</span>
+            <span className="titleLine">환영입니다.</span>
+          </h2>
           <p>프로젝트 자료, 깃허브, 블로그를 함께 확인하실 수 있습니다.</p>
         </div>
         <div className="contactList" aria-label="연락처 목록">
