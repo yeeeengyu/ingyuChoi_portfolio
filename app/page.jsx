@@ -148,8 +148,8 @@ export default function Home() {
           {stacks.map(([, description], index) => (
             <div className="stackMarquee" aria-label={`사용 기술 ${index + 1}`} key={description}>
               <div className="stackTrack">
-                {[0, 1].map((loop) => (
-                  <div className="stackLoop" aria-hidden={loop === 1 ? 'true' : undefined} key={`${index}-${loop}`}>
+                {Array.from({ length: 6 }, (_, loop) => (
+                  <div className="stackLoop" aria-hidden={loop > 0 ? 'true' : undefined} key={`${index}-${loop}`}>
                     {description.split(', ').map((skill) => (
                       <span className="skillPill" key={`${index}-${loop}-${skill}`}>{skill}</span>
                     ))}
