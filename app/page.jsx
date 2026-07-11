@@ -92,6 +92,8 @@ const awards = [
   ['자격', '2025', '정보처리기능사', '개발 기초 역량과 정보처리 전반에 대한 이해를 확인한 국가기술자격 보유']
 ];
 
+const awardCategories = ['활동', '수상', '자격'];
+
 const stacks = [
   ['AI / ML', 'Python, PyTorch, LLM, RAG, LangChain, FAISS, OpenAI API, CV'],
   ['Backend / Infra', 'FastAPI, MongoDB, Docker, AWS EC2, Nginx, REST API, Linux'],
@@ -223,16 +225,26 @@ export default function Home() {
             교내 캡스톤과 전국 대회에서는 아이디어를 실제 서비스 형태로 구현하고 발표까지 이어갔습니다. 외부 전시와 인턴십에서는 사용자에게 설명 가능한 결과물, 협업 과정에서 유지되는 문서화, 제한된 환경에서도 동작하는 구현 방식을 함께 경험했습니다.
           </p>
         </div>
-        <div className="awardList">
-          {awards.map(([category, year, title, description]) => (
-            <article className="awardItem" key={year + '-' + title}>
-              <div className="awardMeta">
-                <span>{year}</span>
+        <div className="awardGroups">
+          {awardCategories.map((category) => (
+            <section className="awardGroup" aria-label={`${category} 내역`} key={category}>
+              <div className="awardGroupLabel">
                 <span>{category}</span>
               </div>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
+              <div className="awardList">
+                {awards
+                  .filter(([itemCategory]) => itemCategory === category)
+                  .map(([, year, title, description]) => (
+                    <article className="awardItem" key={year + '-' + title}>
+                      <div className="awardMeta">
+                        <span>{year}</span>
+                      </div>
+                      <h3>{title}</h3>
+                      <p>{description}</p>
+                    </article>
+                  ))}
+              </div>
+            </section>
           ))}
         </div>
       </section>

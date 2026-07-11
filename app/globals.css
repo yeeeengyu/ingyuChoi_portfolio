@@ -537,11 +537,35 @@ p {
   color: white;
 }
 
+.awardGroups {
+  display: grid;
+  gap: 18px;
+}
+
+.awardGroup {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 1px;
+}
+
+.awardGroupLabel {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 12px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.awardGroupLabel span {
+  color: var(--blue-deep);
+  font-size: 13px;
+  font-weight: 900;
+}
+
 .awardList {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  border: 1px solid var(--line);
-  background: var(--line);
   gap: 1px;
 }
 
@@ -549,6 +573,7 @@ p {
   position: relative;
   min-height: 230px;
   padding: 24px;
+  border: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.76);
   transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
 }
@@ -582,25 +607,11 @@ p {
 .awardMeta {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
 }
 
-.awardMeta span:first-child {
+.awardMeta span {
   color: var(--gold);
   font-weight: 900;
-}
-
-.awardMeta span:last-child {
-  display: inline-flex;
-  align-items: center;
-  min-height: 26px;
-  padding: 0 9px;
-  border: 1px solid rgba(36, 79, 121, 0.22);
-  color: var(--blue-deep);
-  font-size: 12px;
-  font-weight: 900;
-  white-space: nowrap;
 }
 
 .awardItem h3 {
@@ -689,6 +700,15 @@ p {
 
   .projectIndex {
     font-size: 20px;
+  }
+
+  .awardGroup {
+    grid-template-columns: 1fr;
+  }
+
+  .awardGroupLabel {
+    justify-content: flex-start;
+    padding: 14px 18px;
   }
 
   .awardList {
