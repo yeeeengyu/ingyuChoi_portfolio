@@ -138,7 +138,6 @@ export default function Home() {
         <div className="heroBackdrop" />
         <div className="heroGrid">
           <div className="heroCopy">
-            <p className="heroLead">About Me</p>
             <h1>
               <span className="titleLine">AI 모델을 실서비스에 통합하고</span>
               <span className="titleLine">안정적으로 운용하는 백엔드 개발자입니다.</span>
