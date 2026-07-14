@@ -11,9 +11,9 @@ const projects = [
     role: 'AI · AIBE · Infra · PM',
     impact: '7B 모델 15GB를 4.1GB GGUF로 경량화하고 FastAPI inference 서버에서 preload 구조를 적용했습니다.',
     evidence: [
-      ['Problem', '제한된 실행 환경에서 대형 LLM을 안정적으로 호출하고 지연 시간을 줄여야 하는 상황'],
-      ['Solution', '4bit GGUF 양자화와 FastAPI lifespan preload로 추론 서버 구성'],
-      ['Result', '모델 용량 15GB에서 4.1GB로 축소하고 API 요청 시 재로드 비용 제거']
+      ['상황', '랜덤 삽입·제거 증강 후 모델 답변의 문맥이 깨지고 정확도가 감소'],
+      ['해결방향', '문맥과 의미를 살릴 수 있는 paraphrasing과 역번역 증강으로 다시 학습'],
+      ['결과', '문장 의미와 문맥이 깨지는 문제를 줄이고 질문 의도와 더 자연스럽게 연결되는 출력 확인']
     ],
     points: [
       'Qwen2.5-7B-Instruct 모델을 llama.cpp 기반 4bit GGUF로 양자화',
@@ -21,9 +21,9 @@ const projects = [
       'API 요청마다 모델을 재로드하지 않도록 lifespan 기반 LLM preload 구성'
     ],
     sections: [
-      ['Dataset', ['중복 QA 제거와 질문 paraphrasing으로 수의사 대화 데이터를 정제', '랜덤 삽입·제거 증강 대신 문맥을 보존하는 역번역 증강으로 재학습']],
-      ['Serving', ['FastAPI startup 단계에서 LLM을 preload해 요청마다 모델이 재로드되는 구조 제거', '온디바이스 AI와 유사한 지연율을 테스트할 수 있는 inference API 구성']],
-      ['Issue', ['랜덤 증강 후 답변 문맥이 깨지고 정확도가 감소', '증강 전략을 의미 보존 방식으로 바꿔 사용자 입장에서 납득 가능한 출력으로 개선']]
+      ['온디바이스-AI 개발', ['산학연계 회사 과제 내용 완수를 위해 온디바이스 AI 개발', 'llama.cpp를 활용해 7B 모델 약 15GB를 4bit GGUF 4.1GB로 양자화']],
+      ['데이터셋 전처리', ['실제 수의사 대화 QA 데이터 전처리와 증강 진행', '기존 데이터 2,000개를 4배 증강하고 중복 데이터 삭제와 질문 paraphrasing 진행']],
+      ['모델 Lifespan 설정', ['FastAPI 기반 inference 서버 구축', '서버 startup 단계에서 LLM 모델을 preload해 API 요청마다 모델 재로드 방지']]
     ],
     stack: ['FastAPI', 'llama.cpp', 'Qwen2.5', 'Docker', 'EC2']
   },
@@ -35,9 +35,9 @@ const projects = [
     role: 'AI · AIBE · Infra',
     impact: '은행상품 데이터와 청년정책 문서를 RAG로 연결해 추천 결과의 근거성과 확장성을 높였습니다.',
     evidence: [
-      ['Problem', '금융상품과 정책 문서가 분산되어 추천 근거를 유지하기 어려운 상황'],
-      ['Solution', '크롤링 데이터 임베딩, FAISS 검색, LCEL 기반 RAG 파이프라인 구성'],
-      ['Result', '근거 문서 기반 추천 흐름을 만들고 JSON 응답 422 오류를 few-shot으로 안정화']
+      ['상황', 'OpenAI API를 사용하는 모든 기능에서 서버가 프론트에 문자열을 그대로 반환해 422 오류 발생'],
+      ['해결방향', 'LangChain 출력 강제 메서드 대신 예시 JSON을 넣은 Few-Shot 프롬프팅 적용'],
+      ['결과', '기능별 10회 호출 테스트에서 422 오류 해결 및 응답 형식 단일화']
     ],
     points: [
       '제1금융권 금융상품 크롤링 후 임베딩 및 FAISS 벡터 검색 구축',
@@ -45,9 +45,9 @@ const projects = [
       'Few-shot 프롬프팅으로 JSON 응답 안정화 및 422 오류 해결'
     ],
     sections: [
-      ['Feature', ['투자 추천, 금융상품 추천, 청년지원정책 추천에 RAG 도입', '공식 신용등급 계산법 기반 신용등급 분석과 FM 챗봇 제공']],
-      ['Pipeline', ['RecursiveCharacterTextSplitter로 문서 청크 분할', 'FAISS 검색과 RetrievalQA 체인으로 추천 근거 문서를 연결']],
-      ['Issue', ['OpenAI API 응답 문자열을 프론트가 기대한 JSON으로 받지 못해 422 오류 발생', '기능별 예시 JSON을 2개씩 넣은 few-shot 프롬프트로 응답 형식을 안정화']]
+      ['핵심 기능', ['투자 추천, 금융상품 추천, 청년지원정책 추천에 RAG 기법 도입', '공식 신용등급 계산법 기반 신용등급 분석과 자산 관련 FM 챗봇 제공']],
+      ['RAG 구축', ['제1금융권 은행상품을 크롤링해 임베딩·벡터화', 'LangChain RecursiveCharacterTextSplitter로 문서 청크 분할 후 FAISS 벡터 검색 활성화']],
+      ['LangChain 기반 모델 파이프라인 구축', ['LCEL 체이닝으로 RAG 파이프라인 작성', 'RetrievalQA 체인으로 RAG 파이프라인을 캡슐화하고 StrOutputParser로 객체 문자열 해독']]
     ],
     stack: ['FastAPI', 'MongoDB', 'LangChain', 'FAISS', 'OpenAI API', 'Docker', 'Nginx']
   },
@@ -59,9 +59,9 @@ const projects = [
     role: 'AI · AIBE · Infra',
     impact: 'GPU 제약 상황에서도 CPU 추론 파이프라인을 조정해 실시간 처리 안정성을 확보했습니다.',
     evidence: [
-      ['Problem', 'GPU 없이 실시간 영상 추론과 눈 감김 감지를 함께 처리해야 하는 제약'],
-      ['Solution', 'YOLO crop, FaceMesh 랜드마크, EAR 계산으로 감지 범위와 연산량 조정'],
-      ['Result', 'CPU 환경에서도 실시간 처리 흐름을 유지하도록 imgsz와 감지 로직 튜닝']
+      ['상황', 'EC2 AMI 환경이 GPU 드라이버와 호환되지 않아 CUDA Runtime 충돌 발생'],
+      ['해결방향', 'GPU 사용을 포기하고 CPU 기반 추론 구조로 변경, YOLO imgsz 조정'],
+      ['결과', 'CPU 환경에서도 실시간 처리 안정성을 확보해 작품 출품']
     ],
     points: [
       '눈 주변 6개 랜드마크와 EAR 알고리즘으로 사용자별 눈 폭 차이 대응',
@@ -70,9 +70,9 @@ const projects = [
       'CPU 환경에서 imgsz 조정으로 실시간성과 감지 정확도 균형 확보'
     ],
     sections: [
-      ['Detection', ['첫 시작 5초 EAR 평균값을 사용자별 임계값으로 설정', '임계값보다 EAR 값이 낮아지는 구간을 졸음운전으로 판단']],
-      ['Analysis', ['주행 중 EAR 기반 졸음 지표를 수집', '운전 종료 후 졸음 발생 구간 리와인드와 시간 축 그래프 제공']],
-      ['Issue', ['EC2 AMI와 GPU 드라이버 충돌로 CUDA Runtime 사용 불가', 'YOLO imgsz를 낮추고 CPU 기반 추론 구조로 전환해 출품 가능한 실시간성을 확보']]
+      ['MediaPipe 기반 눈 감김 감지', ['눈 근처 6개 랜드마크 기준으로 감김 퍼센트 계산', '첫 시작 5초 EAR 평균값을 임계값으로 지정해 사람마다 다른 눈 폭에도 감지']],
+      ['운전 이후 졸음도 리와인드 제공', ['주행 중 EAR 기반 졸음 지표 수집', '운전 종료 후 졸음 발생 구간 리와인드 분석과 시간 축 기준 졸음도 그래프 제공']],
+      ['YOLO 기반 얼굴·눈 크롭', ['추론 정확도를 높이기 위해 얼굴과 눈 영역 crop', '사용자 화면에도 눈 감지 상태를 보여주며 내부 테스트 기준 오탐 감소']]
     ],
     stack: ['YOLOv11', 'MediaPipe', 'FastAPI', 'MongoDB', 'EC2']
   },
@@ -84,9 +84,9 @@ const projects = [
     role: 'Agent · Backend · AI',
     impact: '문서 신뢰도와 threshold를 응답에 반영해 사실과 다른 API 안내가 섞이는 문제를 줄였습니다.',
     evidence: [
-      ['Problem', 'OpenAPI 전체 스펙을 매번 주입하면 비용이 커지고 잘못된 API 안내가 섞이는 문제'],
-      ['Solution', 'MongoDB Vector Search와 embedding 기반 검색으로 필요한 문서만 주입'],
-      ['Result', '참고 문서 신뢰도와 threshold를 응답에 반영해 답변 근거를 드러냄']
+      ['상황', 'OpenAPI 관련 질문에 질문과 유사하지 않은 기능들이 섞여 출력되는 문제 발생'],
+      ['해결방향', '각 문서마다 질문에 대한 신뢰도를 도입하고 threshold 기반 검색 구조로 수정'],
+      ['결과', '사용자에게 참고 문서와 신뢰도를 함께 보여주며 믿을 수 있는 문서 추천']
     ],
     points: [
       'MongoDB Vector Search와 text-embedding-3-small 기반 문서 임베딩',
@@ -94,9 +94,9 @@ const projects = [
       '참고 문서 신뢰도 표시와 threshold 조절로 응답 근거성 개선'
     ],
     sections: [
-      ['Workflow', ['Codex를 리팩터링, 디버깅, 반복 코드 정리에 활용', '반복 작업을 줄여 RAG 검색과 응답 신뢰도 개선에 집중']],
-      ['Retrieval', ['OpenAPI 스펙을 시스템 프롬프트에 통째로 넣지 않고 필요한 문서만 검색', 'MongoDB Vector Search 점수와 threshold로 참고 문서 품질을 제어']],
-      ['Issue', ['질문과 유사하지 않은 API 기능이 섞여 출력되는 문제 발생', '참고 문서와 신뢰도를 함께 노출하고 임계치 미달 문서는 검색에서 제외']]
+      ['Codex 기반 개발 효율 증대', ['Codex를 리팩터링, 디버깅, 반복 코드 정리에 활용', '단순 반복 작업을 줄여 주요 기능 구현에 집중']],
+      ['RAG 기반 신뢰도 있는 답변 출력', ['MongoDB Vector Search와 text-embedding-3-small로 벡터화·임베딩 진행', '시스템 프롬프트에 OpenAPI 스펙을 넣지 않아 토큰 비용 절감']],
+      ['Threshold 조절', ['지정된 신뢰도 임계치를 넘지 못하는 문서는 검색에서 제외', '임계치를 사용자가 직접 조절할 수 있도록 변경']]
     ],
     stack: ['FastAPI', 'MongoDB', 'text-embedding-3-small', 'ChatGPT Codex']
   }
@@ -138,13 +138,13 @@ export default function Home() {
         <div className="heroBackdrop" />
         <div className="heroGrid">
           <div className="heroCopy">
-            <p className="heroLead">데이터 수집부터 모델 개발 · 서빙까지</p>
+            <p className="heroLead">About Me</p>
             <h1>
-              <span className="titleLine">실서비스에 통합하는</span>
-              <span className="titleLine">AI 백엔드 개발자</span>
+              <span className="titleLine">AI 모델을 실서비스에 통합하고</span>
+              <span className="titleLine">안정적으로 운용하는 백엔드 개발자입니다.</span>
             </h1>
             <p>
-              RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 바탕으로 AI 모델이 제한된 실행 환경에서도 안정적으로 동작하도록 설계하고 운용합니다.
+              RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 보유하고 있습니다.
             </p>
             <div className="heroActions">
               <a className="button primary" href="#projects">프로젝트 보기</a>
@@ -160,12 +160,12 @@ export default function Home() {
           <div>
             <p className="kicker">About</p>
             <h2>
-              <span className="titleLine">모델 구현보다 더 오래 남는 건,</span>
-              <span className="titleLine">실제 환경에서 버티는 구조라고 생각합니다.</span>
+              <span className="titleLine">실제 서비스 환경에서 문제를 마주하고</span>
+              <span className="titleLine">해결하는 과정에 집중합니다.</span>
             </h2>
           </div>
           <p>
-            LLM과 비전 기술을 활용한 프로젝트를 진행하며 모델 성능뿐 아니라 추론 속도, 메모리 사용량, API 형식, 배포 환경까지 함께 고려해왔습니다. 협업에서는 인터페이스와 데이터 구조를 먼저 정리해 작업 기준을 맞추는 편입니다.
+            프로젝트를 진행하며 모델을 설계하는 것보다, 실제 서비스 환경에서 문제를 마주하고 해결하는 과정이 더 재미있다는 것을 알게 되었습니다. 차후 AI 엔지니어링, 특히 모델을 안정적으로 서빙하고 운용하는 MLOps 방향으로 나아가고자 합니다.
           </p>
         </div>
       </section>
@@ -209,7 +209,7 @@ export default function Home() {
                 <p className="projectSummary">{project.summary}</p>
                 <p className="projectContext">{project.context}</p>
                 <div className="impactBox">
-                  <span>Impact</span>
+                  <span>핵심 성과</span>
                   <strong>{project.impact}</strong>
                 </div>
               </div>
@@ -288,10 +288,10 @@ export default function Home() {
         <div className="contactCopy">
           <p className="kicker">Contact</p>
           <h2>
-            <span className="titleLine">간단한 커피챗도</span>
-            <span className="titleLine">환영입니다.</span>
+            <span className="titleLine">긴 글 읽어주셔서 감사합니다.</span>
+            <span className="titleLine">최인규였습니다.</span>
           </h2>
-          <p>프로젝트 자료, 깃허브, 블로그를 함께 확인하실 수 있습니다.</p>
+          <p>공부하고 있는 내용들은 블로그와 깃허브에 기록중입니다.</p>
         </div>
         <div className="contactList" aria-label="연락처 목록">
           <a href={portfolioPdf} target="_blank" rel="noreferrer"><span>PDF</span><strong>최인규_포트폴리오.pdf</strong></a>
