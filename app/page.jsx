@@ -139,7 +139,8 @@ export default function Home() {
         <div className="heroGrid">
           <div className="heroCopy">
             <h1>
-              <span className="titleLine">최인규 포트폴리오</span>
+              <span className="titleLine">데이터 수집부터 모델 서빙까지,</span>
+              <span className="titleLine">모든 파이프라인을 경험해본 고등학생 개발자 최인규입니다.</span>
             </h1>
             <p>
               RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 보유하고 있습니다.
