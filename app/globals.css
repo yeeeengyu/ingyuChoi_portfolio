@@ -372,8 +372,7 @@ p {
   }
 }
 
-.projectItem h3,
-.awardItem h3 {
+.projectItem h3 {
   font-size: 22px;
   line-height: 1.25;
 }
@@ -567,90 +566,119 @@ p {
   color: white;
 }
 
-.awardGroups {
-  display: grid;
-  gap: 18px;
-}
-
-.awardGroup {
-  display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
-  gap: 1px;
-}
-
-.awardGroupLabel {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 24px 12px;
-  border: 1px solid var(--line);
-  background: #ffffff;
-}
-
-.awardGroupLabel span {
-  color: var(--blue-deep);
-  font-size: 13px;
-  font-weight: 900;
-}
-
-.awardList {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 1px;
-}
-
-.awardItem {
+.experienceTimeline {
   position: relative;
-  min-height: 230px;
-  padding: 24px;
-  border: 1px solid var(--line);
-  background: rgba(255, 255, 255, 0.76);
-  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  display: grid;
+  grid-auto-columns: minmax(250px, 1fr);
+  grid-auto-flow: column;
+  min-height: 500px;
+  margin: 18px 0 0;
+  padding: 0;
+  overflow-x: auto;
+  list-style: none;
+  scrollbar-color: var(--line-strong) transparent;
+  scrollbar-width: thin;
 }
 
-.awardItem::before {
+.experienceTimeline::before {
   content: "";
   position: absolute;
-  top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  top: 50%;
+  height: 4px;
   background: var(--blue-deep);
-  opacity: 0;
-  transform: scaleX(0.28);
-  transform-origin: left center;
-  transition: opacity 180ms ease, transform 180ms ease;
+  transform: translateY(-50%);
 }
 
-.awardItem:hover {
+.timelineItem {
+  position: relative;
+  min-height: 500px;
+}
+
+.timelineDot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  width: 24px;
+  height: 24px;
+  border: 4px solid var(--surface-blue);
+  border-radius: 999px;
+  background: var(--blue-deep);
+  box-shadow: 0 0 0 1px rgba(36, 79, 121, 0.32);
+  transform: translate(-50%, -50%);
+}
+
+.timelineItem::before {
+  content: "";
+  position: absolute;
+  left: 50%;
   z-index: 1;
-  background: #ffffff;
-  box-shadow: 0 16px 34px rgba(16, 24, 32, 0.1);
-  transform: translateY(-6px);
+  width: 4px;
+  height: 62px;
+  background: var(--blue-deep);
+  transform: translateX(-50%);
 }
 
-.awardItem:hover::before {
-  opacity: 1;
-  transform: scaleX(1);
+.timelineItem:nth-child(odd)::before {
+  bottom: 50%;
 }
 
-.awardMeta {
+.timelineItem:nth-child(even)::before {
+  top: 50%;
+}
+
+.timelineBody {
+  position: absolute;
+  left: 50%;
+  width: min(238px, calc(100% - 20px));
+  transform: translateX(-50%);
+}
+
+.timelineItem:nth-child(odd) .timelineBody {
+  bottom: calc(50% + 88px);
+}
+
+.timelineItem:nth-child(even) .timelineBody {
+  top: calc(50% + 88px);
+}
+
+.timelineMeta {
   display: flex;
   align-items: center;
+  gap: 8px;
+  margin-bottom: 9px;
 }
 
-.awardMeta span {
+.timelineYear {
   color: var(--gold);
+  font-size: 13px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.timelineCategory {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 7px;
+  border: 1px solid rgba(36, 79, 121, 0.34);
+  color: var(--blue-deep);
+  font-size: 11px;
   font-weight: 900;
 }
 
-.awardItem h3 {
-  margin-top: 30px;
+.timelineBody h3 {
+  font-size: 17px;
+  line-height: 1.34;
 }
 
-.awardItem p {
-  margin-top: 12px;
+.timelineBody p {
+  margin-top: 8px;
   color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 .contact {
@@ -732,17 +760,8 @@ p {
     font-size: 20px;
   }
 
-  .awardGroup {
-    grid-template-columns: 1fr;
-  }
-
-  .awardGroupLabel {
-    justify-content: flex-start;
-    padding: 14px 18px;
-  }
-
-  .awardList {
-    grid-template-columns: 1fr 1fr;
+  .experienceTimeline {
+    grid-auto-columns: minmax(210px, 1fr);
   }
 }
 
@@ -829,17 +848,54 @@ p {
     padding-block: 34px;
   }
 
-  .awardList {
-    grid-template-columns: 1fr;
-  }
-
   .stackMarquee {
     min-height: 50px;
     mask-image: linear-gradient(90deg, transparent 0, black 4%, black 96%, transparent 100%);
   }
 
-  .awardItem {
+  .experienceTimeline {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: unset;
+    gap: 24px;
     min-height: auto;
+    overflow-x: visible;
+    padding-left: 28px;
+  }
+
+  .experienceTimeline::before {
+    left: 6px;
+    right: auto;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    height: auto;
+    transform: none;
+  }
+
+  .timelineItem {
+    min-height: auto;
+  }
+
+  .timelineDot {
+    left: -22px;
+    top: 5px;
+    width: 18px;
+    height: 18px;
+    border-width: 3px;
+    transform: none;
+  }
+
+  .timelineItem::before {
+    display: none;
+  }
+
+  .timelineBody,
+  .timelineItem:nth-child(odd) .timelineBody,
+  .timelineItem:nth-child(even) .timelineBody {
+    position: static;
+    width: auto;
+    transform: none;
   }
 
   .contactList a {

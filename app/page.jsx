@@ -103,25 +103,23 @@ const projects = [
 ];
 
 const awards = [
-  ['활동', '2026', 'AI Expo Korea 작품 출품', 'Dogtor 프로젝트를 2026 AI Expo Korea 국제인공지능대전에 3일간 출품'],
+  ['수상', '2024', 'MS 해커그라운드 해커톤 장려', '해커톤 프로젝트 수행 및 장려 수상'],
+  ['활동', '2024', 'Apple Foundation Program @ POSTECH', '3기 과정에서 제품 기획, 사용자 관점의 문제 정의, 팀 기반 프로토타이핑 수행'],
+  ['활동', '2024', '의성 자기소개페이지 워크샵', '자기소개 페이지 제작 워크샵 참가'],
   ['수상', '2025', '교내 캡스톤 프로젝트 은상 · 동상', 'Fresh Money 은상, Dogtor 동상 수상'],
   ['수상', '2025', '전국 고등학교 동아리 SW 경진대회 장려', 'YOLO와 MediaPipe 기반 LightBox 프로젝트 수행'],
   ['수상', '2025', '제7회 데이터 크리에이터 캠프 장려', '500여 개 팀 중 6위 입상'],
   ['수상', '2025', 'SW-AI 장려', 'SW-AI 관련 프로젝트 활동으로 장려 수상'],
-  ['수상', '2024', 'MS 해커그라운드 해커톤 장려', '해커톤 프로젝트 수행 및 장려 수상'],
-  ['활동', '2026', '제3회 아진실리경진대회 작품 출품', '압축공기 누설 및 절전 알림시스템, LightBox 프로젝트를 경북교육청 부스에 출품'],
   ['활동', '2025', 'AI Expo Korea 부스 참가 및 운영', '2025 AI Expo Korea 국제인공지능대전 부스 참가 및 운영'],
   ['활동', '2025', '실리콘밸리 견학', '현지 기술 기업과 개발 문화를 직접 살펴보며 서비스 기획과 실행 방식의 차이를 경험'],
   ['활동', '2025', '퀀텀아이 인턴십', '현업 환경에서 개발 업무 흐름과 협업 방식, 결과물 관리 과정을 경험'],
-  ['활동', '2025-2026', '선도부장', '2025~26학년도 선도부장 활동'],
-  ['활동', '2024', 'Apple Foundation Program @ POSTECH', '3기 과정에서 제품 기획, 사용자 관점의 문제 정의, 팀 기반 프로토타이핑 수행'],
-  ['활동', '2024', '의성 자기소개페이지 워크샵', '자기소개 페이지 제작 워크샵 참가'],
   ['자격', '2025', '정보처리기능사', '개발 기초 역량과 정보처리 전반에 대한 이해를 확인한 국가기술자격 보유'],
   ['자격', '2025', '파이썬 프로그래밍 3급', '한국인공지능아카데미 발급 민간자격증으로 Python 기초 활용 역량을 확인'],
-  ['자격', '2025', '딥러닝활용자격증 3급', '한국인공지능아카데미 발급 민간자격증으로 딥러닝 기초 활용 역량을 확인']
+  ['자격', '2025', '딥러닝활용자격증 3급', '한국인공지능아카데미 발급 민간자격증으로 딥러닝 기초 활용 역량을 확인'],
+  ['활동', '2025-2026', '선도부장', '2025~26학년도 선도부장 활동'],
+  ['활동', '2026', 'AI Expo Korea 작품 출품', 'Dogtor 프로젝트를 2026 AI Expo Korea 국제인공지능대전에 3일간 출품'],
+  ['활동', '2026', '제3회 아진실리경진대회 작품 출품', '압축공기 누설 및 절전 알림시스템, LightBox 프로젝트를 경북교육청 부스에 출품']
 ];
-
-const awardCategories = ['활동', '수상', '자격'];
 
 const stacks = [
   ['AI / ML', 'Python, PyTorch, llama.cpp, FAISS, RAG, LangChain, OpenAI API, YOLOv11, MediaPipe'],
@@ -259,28 +257,21 @@ export default function Home() {
             <h2>경험&수상</h2>
           </div>
         </div>
-        <div className="awardGroups">
-          {awardCategories.map((category) => (
-            <section className="awardGroup" aria-label={`${category} 내역`} key={category}>
-              <div className="awardGroupLabel">
-                <span>{category}</span>
+        <ol className="experienceTimeline" aria-label="경험과 수상 시간순 타임라인">
+          {awards.map(([category, year, title, description]) => (
+            <li className="timelineItem" key={year + '-' + title}>
+              <span className="timelineDot" aria-hidden="true" />
+              <div className="timelineBody">
+                <div className="timelineMeta">
+                  <span className="timelineYear">{year}</span>
+                  <span className="timelineCategory">{category}</span>
+                </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
               </div>
-              <div className="awardList">
-                {awards
-                  .filter(([itemCategory]) => itemCategory === category)
-                  .map(([, year, title, description]) => (
-                    <article className="awardItem" key={year + '-' + title}>
-                      <div className="awardMeta">
-                        <span>{year}</span>
-                      </div>
-                      <h3>{title}</h3>
-                      <p>{description}</p>
-                    </article>
-                  ))}
-              </div>
-            </section>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
       <section className="section contact" id="contact">
