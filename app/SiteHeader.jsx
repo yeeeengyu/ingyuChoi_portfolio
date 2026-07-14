@@ -16,7 +16,7 @@ function HeaderMarkup({ className, isHidden = false }) {
       className={className}
       aria-label="페이지 바로가기"
       aria-hidden={isHidden || undefined}
-      inert={isHidden ? '' : undefined}
+      inert={isHidden ? true : undefined}
     >
       <nav className="partNav" aria-label="주요 섹션">
         {navItems.map(([label, href]) => (

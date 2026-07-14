@@ -35,7 +35,7 @@ export const metadata = {
         url: '/images/banner.png',
         width: 1500,
         height: 600,
-        alt: '최인규 실시간 수어 번역 발표 사진'
+        alt: '최인규 포트폴리오 대표 이미지'
       }
     ]
   },
