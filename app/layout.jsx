@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: '최인규 | AI Backend Portfolio',
-  description: 'AI 모델을 실서비스에 통합하고 안정적으로 운용하는 백엔드 개발자 최인규의 포트폴리오',
+  description: 'RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 담은 최인규의 포트폴리오',
   applicationName: 'Choi Ingyu Portfolio',
   authors: [{ name: '최인규' }],
   creator: '최인규',
@@ -25,7 +25,7 @@ export const metadata = {
   },
   openGraph: {
     title: '최인규 | AI Backend Portfolio',
-    description: 'RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 보유한 AI 백엔드 개발자 포트폴리오',
+    description: 'RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 담은 최인규 포트폴리오',
     url: '/',
     siteName: '최인규 AI Backend Portfolio',
     locale: 'ko_KR',
@@ -42,7 +42,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '최인규 | AI Backend Portfolio',
-    description: 'RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 보유한 AI 백엔드 개발자 포트폴리오',
+    description: 'RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 담은 최인규 포트폴리오',
     images: ['/images/banner.png']
   },
   robots: {
