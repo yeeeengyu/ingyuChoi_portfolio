@@ -462,6 +462,36 @@ p {
   color: #354555;
 }
 
+.projectSubsections {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.projectSubsection {
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.projectSubsection h4 {
+  margin: 0 0 10px;
+  color: var(--blue-deep);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.projectSubsection ul {
+  gap: 7px;
+}
+
+.projectSubsection li {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
 .projectEvidence {
   display: grid;
   gap: 1px;

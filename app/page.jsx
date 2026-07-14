@@ -20,6 +20,11 @@ const projects = [
       '수의사 대화 QA 데이터 2,000개를 전처리하고 paraphrasing, 역번역으로 증강',
       'API 요청마다 모델을 재로드하지 않도록 lifespan 기반 LLM preload 구성'
     ],
+    sections: [
+      ['Dataset', ['중복 QA 제거와 질문 paraphrasing으로 수의사 대화 데이터를 정제', '랜덤 삽입·제거 증강 대신 문맥을 보존하는 역번역 증강으로 재학습']],
+      ['Serving', ['FastAPI startup 단계에서 LLM을 preload해 요청마다 모델이 재로드되는 구조 제거', '온디바이스 AI와 유사한 지연율을 테스트할 수 있는 inference API 구성']],
+      ['Issue', ['랜덤 증강 후 답변 문맥이 깨지고 정확도가 감소', '증강 전략을 의미 보존 방식으로 바꿔 사용자 입장에서 납득 가능한 출력으로 개선']]
+    ],
     stack: ['FastAPI', 'llama.cpp', 'Qwen2.5', 'Docker', 'EC2']
   },
   {
@@ -38,6 +43,11 @@ const projects = [
       '제1금융권 금융상품 크롤링 후 임베딩 및 FAISS 벡터 검색 구축',
       'LangChain LCEL과 RetrievalQA 체인 기반 RAG 파이프라인 작성',
       'Few-shot 프롬프팅으로 JSON 응답 안정화 및 422 오류 해결'
+    ],
+    sections: [
+      ['Feature', ['투자 추천, 금융상품 추천, 청년지원정책 추천에 RAG 도입', '공식 신용등급 계산법 기반 신용등급 분석과 FM 챗봇 제공']],
+      ['Pipeline', ['RecursiveCharacterTextSplitter로 문서 청크 분할', 'FAISS 검색과 RetrievalQA 체인으로 추천 근거 문서를 연결']],
+      ['Issue', ['OpenAI API 응답 문자열을 프론트가 기대한 JSON으로 받지 못해 422 오류 발생', '기능별 예시 JSON을 2개씩 넣은 few-shot 프롬프트로 응답 형식을 안정화']]
     ],
     stack: ['FastAPI', 'MongoDB', 'LangChain', 'FAISS', 'OpenAI API', 'Docker', 'Nginx']
   },
@@ -59,6 +69,11 @@ const projects = [
       '주행 중 졸음 지표를 수집하고 시간 축 기준 졸음도 그래프 생성',
       'CPU 환경에서 imgsz 조정으로 실시간성과 감지 정확도 균형 확보'
     ],
+    sections: [
+      ['Detection', ['첫 시작 5초 EAR 평균값을 사용자별 임계값으로 설정', '임계값보다 EAR 값이 낮아지는 구간을 졸음운전으로 판단']],
+      ['Analysis', ['주행 중 EAR 기반 졸음 지표를 수집', '운전 종료 후 졸음 발생 구간 리와인드와 시간 축 그래프 제공']],
+      ['Issue', ['EC2 AMI와 GPU 드라이버 충돌로 CUDA Runtime 사용 불가', 'YOLO imgsz를 낮추고 CPU 기반 추론 구조로 전환해 출품 가능한 실시간성을 확보']]
+    ],
     stack: ['YOLOv11', 'MediaPipe', 'FastAPI', 'MongoDB', 'EC2']
   },
   {
@@ -77,6 +92,11 @@ const projects = [
       'MongoDB Vector Search와 text-embedding-3-small 기반 문서 임베딩',
       'OpenAPI 스펙 전체 주입 대신 검색 기반 응답으로 토큰 비용 절감',
       '참고 문서 신뢰도 표시와 threshold 조절로 응답 근거성 개선'
+    ],
+    sections: [
+      ['Workflow', ['Codex를 리팩터링, 디버깅, 반복 코드 정리에 활용', '반복 작업을 줄여 RAG 검색과 응답 신뢰도 개선에 집중']],
+      ['Retrieval', ['OpenAPI 스펙을 시스템 프롬프트에 통째로 넣지 않고 필요한 문서만 검색', 'MongoDB Vector Search 점수와 threshold로 참고 문서 품질을 제어']],
+      ['Issue', ['질문과 유사하지 않은 API 기능이 섞여 출력되는 문제 발생', '참고 문서와 신뢰도를 함께 노출하고 임계치 미달 문서는 검색에서 제외']]
     ],
     stack: ['FastAPI', 'MongoDB', 'text-embedding-3-small', 'ChatGPT Codex']
   }
@@ -199,6 +219,18 @@ export default function Home() {
                     <li key={point}>{point}</li>
                   ))}
                 </ul>
+                <div className="projectSubsections">
+                  {project.sections.map(([label, items]) => (
+                    <section className="projectSubsection" aria-label={`${project.title} ${label}`} key={label}>
+                      <h4>{label}</h4>
+                      <ul>
+                        {items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </section>
+                  ))}
+                </div>
                 <div className="projectEvidence">
                   {project.evidence.map(([label, value]) => (
                     <div key={label}>
