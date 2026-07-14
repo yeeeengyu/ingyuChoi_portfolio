@@ -139,8 +139,8 @@ export default function Home() {
         <div className="heroGrid">
           <div className="heroCopy">
             <h1>
-              <span className="titleLine">AI 모델을 실서비스에 통합하고</span>
-              <span className="titleLine">안정적으로 운용하는 백엔드 개발자입니다.</span>
+              <span className="titleLine">AI 모델을 실서비스에 통합하고 안정적으로 운용하는 것에</span>
+              <span className="titleLine">집중하는 백엔드 개발자입니다.</span>
             </h1>
             <p>
               RAG, 온디바이스 AI, 실시간 추론 서버 구축 경험을 보유하고 있습니다.
